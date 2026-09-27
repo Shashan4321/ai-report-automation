@@ -1,0 +1,223 @@
+{
+  "period": "December 2025",
+  "revenue": 16674201.5,
+  "orders": 1026,
+  "aov": 16251.66,
+  "margin_pct": 26.8,
+  "return_rate_pct": 2.07,
+  "revenue_mom_pct": -17.0,
+  "revenue_yoy_pct": 10.1,
+  "orders_yoy_pct": 4.6,
+  "by_category": [
+    {
+      "category": "Electronics",
+      "revenue": 7694044.0,
+      "margin_pct": 26.86,
+      "yoy_pct": 12.3
+    },
+    {
+      "category": "Home & Kitchen",
+      "revenue": 3439953.5,
+      "margin_pct": 25.36,
+      "yoy_pct": 13.8
+    },
+    {
+      "category": "Sports",
+      "revenue": 2392354.0,
+      "margin_pct": 26.78,
+      "yoy_pct": 13.5
+    },
+    {
+      "category": "Fashion",
+      "revenue": 2286041.0,
+      "margin_pct": 28.69,
+      "yoy_pct": -0.2
+    },
+    {
+      "category": "Grocery",
+      "revenue": 861809.0,
+      "margin_pct": 27.72,
+      "yoy_pct": -1.4
+    }
+  ],
+  "top_cities": [
+    {
+      "city": "Mumbai",
+      "revenue": 2523403.5
+    },
+    {
+      "city": "Singapore",
+      "revenue": 2220053.0
+    },
+    {
+      "city": "Chennai",
+      "revenue": 2175137.5
+    }
+  ],
+  "bottom_cities": [
+    {
+      "city": "Hyderabad",
+      "revenue": 601709.0
+    },
+    {
+      "city": "Gurugram",
+      "revenue": 660070.0
+    },
+    {
+      "city": "Bengaluru",
+      "revenue": 672635.5
+    }
+  ],
+  "channel_mix": [
+    {
+      "channel": "Store",
+      "share_pct": 49.05
+    },
+    {
+      "channel": "Online",
+      "share_pct": 33.96
+    },
+    {
+      "channel": "Marketplace",
+      "share_pct": 16.99
+    }
+  ],
+  "anomalies": [
+    {
+      "date": "2025-12-07",
+      "revenue": 1178866.0,
+      "z_score": 4.8
+    },
+    {
+      "date": "2025-12-21",
+      "revenue": 1168728.0,
+      "z_score": 4.7
+    }
+  ],
+  "daily": [
+    {
+      "date": "2025-12-01",
+      "revenue": 296197.5
+    },
+    {
+      "date": "2025-12-02",
+      "revenue": 516007.0
+    },
+    {
+      "date": "2025-12-03",
+      "revenue": 421936.0
+    },
+    {
+      "date": "2025-12-04",
+      "revenue": 530119.5
+    },
+    {
+      "date": "2025-12-05",
+      "revenue": 430028.0
+    },
+    {
+      "date": "2025-12-06",
+      "revenue": 324117.0
+    },
+    {
+      "date": "2025-12-07",
+      "revenue": 1178866.0
+    },
+    {
+      "date": "2025-12-08",
+      "revenue": 854829.5
+    },
+    {
+      "date": "2025-12-09",
+      "revenue": 427019.0
+    },
+    {
+      "date": "2025-12-10",
+      "revenue": 636152.5
+    },
+    {
+      "date": "2025-12-11",
+      "revenue": 401270.0
+    },
+    {
+      "date": "2025-12-12",
+      "revenue": 311613.0
+    },
+    {
+      "date": "2025-12-13",
+      "revenue": 576393.0
+    },
+    {
+      "date": "2025-12-14",
+      "revenue": 832458.5
+    },
+    {
+      "date": "2025-12-15",
+      "revenue": 829180.5
+    },
+    {
+      "date": "2025-12-16",
+      "revenue": 364769.5
+    },
+    {
+      "date": "2025-12-17",
+      "revenue": 411896.0
+    },
+    {
+      "date": "2025-12-18",
+      "revenue": 412579.5
+    },
+    {
+      "date": "2025-12-19",
+      "revenue": 214106.0
+    },
+    {
+      "date": "2025-12-20",
+      "revenue": 743633.5
+    },
+    {
+      "date": "2025-12-21",
+      "revenue": 1168728.0
+    },
+    {
+      "date": "2025-12-22",
+      "revenue": 197191.5
+    },
+    {
+      "date": "2025-12-23",
+      "revenue": 416124.5
+    },
+    {
+      "date": "2025-12-24",
+      "revenue": 468251.5
+    },
+    {
+      "date": "2025-12-25",
+      "revenue": 400678.0
+    },
+    {
+      "date": "2025-12-26",
+      "revenue": 891817.5
+    },
+    {
+      "date": "2025-12-27",
+      "revenue": 424521.5
+    },
+    {
+      "date": "2025-12-28",
+      "revenue": 500551.5
+    },
+    {
+      "date": "2025-12-29",
+      "revenue": 919701.5
+    },
+    {
+      "date": "2025-12-30",
+      "revenue": 141651.0
+    },
+    {
+      "date": "2025-12-31",
+      "revenue": 431813.5
+    }
+  ]
+}
