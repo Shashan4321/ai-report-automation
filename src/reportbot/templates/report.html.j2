@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales report - {{ k.period }}</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#1f2937;
+         max-width: 760px; margin: 24px auto; padding: 0 16px; background:#fff; }
+  h1 { font-size: 22px; margin: 0; } .sub { color:#6b7280; font-size: 13px; margin-top: 4px; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
+  .kpi { border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px 12px; }
+  .kpi .label { font-size: 11px; color:#6b7280; text-transform: uppercase; letter-spacing: .04em; }
+  .kpi .value { font-size: 20px; font-weight: 600; margin-top: 2px; }
+  .kpi .delta { font-size: 12px; } .up { color:#15803d; } .down { color:#b91c1c; }
+  .narrative { background:#f9fafb; border-left: 3px solid #2563eb; padding: 4px 16px; border-radius: 4px; }
+  .narrative h3 { font-size: 14px; margin: 14px 0 4px; }
+  img { width: 100%; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #e5e7eb; }
+  td.num, th.num { text-align: right; }
+  footer { color:#9ca3af; font-size: 11px; margin-top: 24px; }
+  @media (max-width: 600px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<h1>Monthly sales report: {{ k.period }}</h1>
+<div class="sub">Synthetic retail data · generated {{ generated }} · narrative: {{ "Claude" if source == "claude" else "rule-based template" }}</div>
+
+{% macro delta(p, label) -%}
+  {%- if p is none -%}<span class="delta">n/a {{ label }}</span>
+  {%- else -%}<span class="delta {{ 'up' if p >= 0 else 'down' }}">{{ "%+.1f"|format(p) }}% {{ label }}</span>{%- endif -%}
+{%- endmacro %}
+
+<div class="kpis">
+  <div class="kpi"><div class="label">Revenue</div><div class="value">₹{{ "%.2f"|format(k.revenue / 1e7) }} Cr</div>{{ delta(k.revenue_yoy_pct, "YoY") }}</div>
+  <div class="kpi"><div class="label">Orders</div><div class="value">{{ "{:,}".format(k.orders) }}</div>{{ delta(k.orders_yoy_pct, "YoY") }}</div>
+  <div class="kpi"><div class="label">Avg order value</div><div class="value">₹{{ "{:,.0f}".format(k.aov) }}</div>{{ delta(k.revenue_mom_pct, "rev MoM") }}</div>
+  <div class="kpi"><div class="label">Gross margin</div><div class="value">{{ "%.1f"|format(k.margin_pct) }}%</div><span class="delta">returns {{ "%.2f"|format(k.return_rate_pct) }}%</span></div>
+</div>
+
+<div class="narrative">{{ narrative | safe }}</div>
+
+<img alt="Daily revenue" src="data:image/png;base64,{{ daily_png }}">
+<img alt="Revenue by category" src="data:image/png;base64,{{ category_png }}">
+
+<h3>Category detail</h3>
+<table>
+  <tr><th>Category</th><th class="num">Revenue (₹ lakh)</th><th class="num">Margin %</th><th class="num">YoY %</th></tr>
+  {% for c in k.by_category %}
+  <tr><td>{{ c.category }}</td><td class="num">{{ "%.2f"|format(c.revenue / 1e5) }}</td>
+      <td class="num">{{ "%.1f"|format(c.margin_pct) }}</td>
+      <td class="num">{{ "n/a" if c.yoy_pct is none else "%+.1f"|format(c.yoy_pct) }}</td></tr>
+  {% endfor %}
+</table>
+
+<footer>Every number in the narrative is checked against the KPI pack before sending. Built with Python, DuckDB and the Claude API.</footer>
+</body>
+</html>
